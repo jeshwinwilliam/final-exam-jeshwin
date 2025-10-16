@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Details | Jeshwin William James</title>
+  <link rel="stylesheet" href="css/form.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Jeshwin Portfolio</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="http://localhost:8080/map.html">Map</a></li>
+      <li><a href="form.html">Form</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Manage Your Details</h1>
+    <p>Update your address and password securely below.</p>
+  </header>
+
+  <!-- Main Form Section -->
+  <section class="form-section">
+    <div class="form-container">
+
+      <!-- Address Update -->
+      <div class="form-box address-box">
+        <h3>Change Address</h3>
+        <p id="currentAddress">1234 Elm Street, Boston, MA 02115</p>
+        <input type="text" id="newAddress" placeholder="Enter your new address" />
+        <button onclick="updateAddress()">Update Address</button>
+        <p id="addressMessage" class="message"></p>
+      </div>
+
+      <!-- Password Update -->
+      <div class="form-box password-box">
+        <h3>Change Password</h3>
+        <form id="passwordForm" onsubmit="return validatePassword(event)">
+          <input type="password" id="currentPass" placeholder="Current Password" required />
+          <input type="password" id="newPass" placeholder="New Password" required />
+          <input type="password" id="confirmPass" placeholder="Confirm Password" required />
+          <button type="submit">Change Password</button>
+          <p id="passwordMessage" class="message"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jeshwin William James | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // ✅ Update Address
+    function updateAddress() {
+      const newAddr = document.getElementById("newAddress").value.trim();
+      const message = document.getElementById("addressMessage");
+      const display = document.getElementById("currentAddress");
+
+      if (!newAddr) {
+        message.textContent = "⚠️ Please enter a valid address.";
+        message.style.color = "red";
+        return;
+      }
+
+      display.textContent = newAddr;
+      document.getElementById("newAddress").value = "";
+      message.textContent = "✅ Address updated successfully!";
+      message.style.color = "green";
+    }
+
+    // ✅ Validate Password
+    function validatePassword(event) {
+      event.preventDefault();
+      const newPass = document.getElementById("newPass").value;
+      const confirmPass = document.getElementById("confirmPass").value;
+      const msg = document.getElementById("passwordMessage");
+
+      const passPattern = /^(?=(?:.*[A-Z]){2})(?=.*[!@#$%^&*]).{9,}$/;
+
+      if (!passPattern.test(newPass)) {
+        msg.textContent = "❌ Password must have min 9 chars, 2 uppercase letters, and 1 special symbol.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (newPass !== confirmPass) {
+        msg.textContent = "❌ Passwords do not match!";
+        msg.style.color = "red";
+        return false;
+      }
+
+      msg.textContent = "✅ Password changed successfully!";
+      msg.style.color = "green";
+      document.getElementById("passwordForm").reset();
+      return true;
+    }
+  </script>
+</body>
+</html>
