@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jeshwin William James portfolio and visitor page" />
+  <title>Home | Jeshwin William James</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <script defer>
+    function toggleAbout() {
+      const aboutSection = document.getElementById('about-me');
+      aboutSection.style.display = aboutSection.style.display === 'none' ? 'block' : 'none';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Jeshwin Portfolio</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="http://localhost:8080/map.html">Map</a></li>
+      <li><a href="form.html">Form</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Left side: Profile Card -->
+    <div class="profile-card">
+      <div class="profile-content">
+        <div class="profile-img">
+          <img src="assets/jeshwin.jpg" alt="Jeshwin William James" />
+        </div>
+        <div class="profile-info">
+          <h2>Jeshwin William James</h2>
+          <h4>Computer Science Student</h4>
+          <p>
+            Passionate about software engineering, AI, and data-driven systems. 
+            I enjoy transforming ideas into functional and elegant web applications.
+            Currently exploring cloud computing and large-scale backend systems.
+          </p>
+          <button class="btn-visit" onclick="toggleAbout()">Visit Page</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Sidebar -->
+    <div class="sidebar">
+      <div class="quote-card">
+        <img src="assets/quote.jpg" alt="Student Quote">
+        <p>“Every challenge I face in coding is another step toward mastering innovation.”</p>
+        <div class="quote-author">– Jeshwin William James</div>
+      </div>
+
+      <div class="explore-card">
+        <h3>Explore Programs</h3>
+        <p>Find your passion:</p>
+        <input type="text" placeholder="Search for a program" id="programSearch" />
+        <ul class="programs-list" id="programList">
+          <li>Computer Science</li>
+          <li>Data Analytics</li>
+          <li>Artificial Intelligence</li>
+          <li>Cybersecurity</li>
+          <li>Web Development</li>
+          <li>Software Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Me Section (Hidden Initially) -->
+  <section id="about-me" style="display:none; padding:2rem;">
+    <h2 style="color:#004080; text-align:center;">More About Jeshwin</h2>
+    <p style="max-width:900px;margin:1rem auto;text-align:center;line-height:1.6;">
+      I am a dedicated Computer Science student with a strong interest in backend engineering, AI, and full-stack development.
+      I have hands-on experience in building scalable systems using Java, Python, and Node.js, along with cloud technologies like AWS and GCP.
+      My academic focus includes distributed computing, data pipelines, and AI-assisted automation.
+    </p>
+    <p style="max-width:900px;margin:1rem auto;text-align:center;line-height:1.6;">
+      Beyond coding, I enjoy UI design, creative problem-solving, and mentoring peers in data structures and algorithms.
+      My goal is to grow as an engineer who builds impactful, user-centered solutions while continuously learning emerging technologies.
+    </p>
+  </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Jeshwin’s Portfolio</h1>
+      <p>Building ideas into digital reality.</p>
+    </div>
+  </section>
+  
+
+  <!-- Contact Box -->
+  <div class="contact-box" id="contact">
+    <h3>Contact Jeshwin William James</h3>
+    <p><a href="mailto:jeshwin.wj@gmail.com">jeshwin.wj@gmail.com</a></p>
+    <p>📞 (555) 321-6789</p>
+    <button onclick="window.location.href='http://localhost:8080/map.html'">View My Map and Directions</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jeshwin William James | All Rights Reserved</p>
+  </footer>
+
+  <!-- Program search filter -->
+  <script>
+    document.getElementById('programSearch').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const items = document.querySelectorAll('#programList li');
+      items.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+
