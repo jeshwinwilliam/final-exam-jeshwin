@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive map to explore top restaurants and locations with autocomplete search." />
+  <title>Maps | Jeshwin Visitor Portal</title>
+  <link rel="stylesheet" href="css/map.css">
+  <script defer src="js/map.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Maps - Directions</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="form.html">Form</a></li>
+      <li><a href="http://localhost:8080/map.html" class="active">Maps</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- Search -->
+  <section class="map-search">
+    <input id="searchBox" type="text" placeholder="Search restaurants or places..." />
+    <button id="searchBtn">Search</button>
+  </section>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Results -->
+  <div id="results" class="card-carousel"></div>
+
+  <footer>
+    <p>© 2025 Jeshwin Visitor Portal</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+  <!-- Replace YOUR_API_KEY_HERE with your actual API key -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH40S53wS7Z9lQazb2OPAtk3Z1_6RnHMU&libraries=places&callback=initMap"></script>
+</body>
+</html>

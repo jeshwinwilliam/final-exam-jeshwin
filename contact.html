@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Jeshwin William James</title>
+  <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Jeshwin Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="http://localhost:8080/map.html">Map</a></li>
+      <li><a href="form.html">Form</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Contact Me</h1>
+    <p>Let’s connect — I’d love to hear from you!</p>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-card">
+      <h3>Get In Touch</h3>
+      <p>Email: <a href="mailto:jeshwin@example.com">jeshwin@example.com</a></p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/jeshwinjames</a></p>
+      <p>GitHub: <a href="#">github.com/jeshwinjames</a></p>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Jeshwin William James | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
